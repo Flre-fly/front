@@ -8,16 +8,34 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
+    <style>
+        .normal {
+            font-size: 100px;
+            color: blue;
+        }
+        .active{
+            font-size: 100px;
+            color: red;
+        }
+    </style>
     <div id="app" >
-        <div>{{msg}}</div>
-        <div v-html = "msg"></div>
+        <div :class="className" 
+            @click="changeClassName">
+            {{msg}}
+        </div> <!-- "v-bind:class -> :class" --> 
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                msg: 'good~<br/>good~'
+                msg: 'good~',
+                className: 'normal'
             },
+            methods: {
+                changeClassName () {
+                    this.className = 'active'
+                }
+            }
         
 
         })
