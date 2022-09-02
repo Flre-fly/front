@@ -39,6 +39,12 @@
             },
             updated(){
                 console.log('updated!!!    '+ this.$refs.msg.innerText);
+            },
+            beforeDestroy(){
+                console.log('beforeDestroy   '+ this.$refs.msg.innerText);
+            },
+            destroyed(){
+                console.log('destroyed   ');
             }
             
 
