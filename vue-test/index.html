@@ -9,11 +9,9 @@
 </head>
 <body>
     <div id="app" >
-        <div ref="div1">
-        </div>
-        <div ref = "msg">
-            {{msg}}
-        </div>
+        <div v-once>{{msg}}</div>
+        <div>{{msg}}</div>
+        <div>{{msg}}</div>
     
     </div>
     <script>
@@ -22,32 +20,7 @@
             data: {
                 msg: 'hi~'
             },
-            beforeCreate () {
-                console.log('beforeCreated  ', this.$refs.div1)
-            },
-            created(){
-                console.log('created  ', this.$refs.div1)
-            },
-            beforeMount(){
-                console.log('beforeMount  ', this.$refs.div1)
-            },
-            mounted(){
-                console.log('mounted!!  ', this.$refs.div1)
-            },
-            beforeUpdate(){
-                console.log('beforeupdated!!!    '+ this.$refs.msg.innerText)
-            },
-            updated(){
-                console.log('updated!!!    '+ this.$refs.msg.innerText);
-            },
-            beforeDestroy(){
-                console.log('beforeDestroy   '+ this.$refs.msg.innerText);
-            },
-            destroyed(){
-                console.log('destroyed   ');
-            }
-            
-
+        
 
         })
         console.log('-------------')
