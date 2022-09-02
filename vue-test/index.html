@@ -8,9 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
-    <div id="app">
-        <div ref="div1"></div>
-        {{msg}}
+    <div id="app" >
+        <div ref="div1">
+        </div>
+        <div ref = "msg">
+            {{msg}}
+        </div>
+    
     </div>
     <script>
         const vm = new Vue({
@@ -30,6 +34,14 @@
             mounted(){
                 console.log('mounted!!  ', this.$refs.div1)
             },
+            beforeUpdate(){
+                console.log('beforeupdated!!!    '+ this.$refs.msg.innerText)
+            },
+            updated(){
+                console.log('updated!!!    '+ this.$refs.msg.innerText);
+            }
+            
+
 
         })
         console.log('-------------')
