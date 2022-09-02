@@ -9,26 +9,28 @@
 </head>
 <body>
     <div id="app">
-        <div>{{msg}}</div>
-        <div>{{msg2}}</div>
-        <button v-on:click="changeMessage">나를 눌러주세요</button>
+        {{msg}}
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                msg: 'message A'
+                msg: 'hi~'
             },
-            methods: {
-                changeMessage: function() {
-                    this.msg = 'changed';
-                    this.msg2 = 'changed2';
-                }
+            beforeCreate () {
+                console.log('beforeCreated  ', this.msg)//생성이전이라 값을 출력하지 못할것이다
+            },
+            created(){
+                console.log('created  ', this.msg)
+            },
+            beforeMount(){
+                console.log('beforeMount  ', this.msg)
+            },
+            mounted(){
+                console.log('mounted!!  ', this.msg)
             }
 
         })
-        console.log('-------------')
-        console.log(vm)
         console.log('-------------')
     </script>
 </body>
