@@ -9,6 +9,7 @@
 </head>
 <body>
     <div id="app">
+        <div ref="div1"></div>
         {{msg}}
     </div>
     <script>
@@ -18,17 +19,17 @@
                 msg: 'hi~'
             },
             beforeCreate () {
-                console.log('beforeCreated  ', this.msg)//생성이전이라 값을 출력하지 못할것이다
+                console.log('beforeCreated  ', this.$refs.div1)
             },
             created(){
-                console.log('created  ', this.msg)
+                console.log('created  ', this.$refs.div1)
             },
             beforeMount(){
-                console.log('beforeMount  ', this.msg)
+                console.log('beforeMount  ', this.$refs.div1)
             },
             mounted(){
-                console.log('mounted!!  ', this.msg)
-            }
+                console.log('mounted!!  ', this.$refs.div1)
+            },
 
         })
         console.log('-------------')
