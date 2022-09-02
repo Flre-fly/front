@@ -10,6 +10,7 @@
 <body>
     <div id="app">
         <div>{{msg}}</div>
+        <div>{{msg2}}</div>
         <button v-on:click="changeMessage">나를 눌러주세요</button>
     </div>
     <script>
@@ -21,6 +22,7 @@
             methods: {
                 changeMessage: function() {
                     this.msg = 'changed';
+                    this.msg2 = 'changed2';
                 }
             }
 
