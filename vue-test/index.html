@@ -8,38 +8,38 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
-    <style>
-        .normal {
-            font-size: 100px;
-            color: blue;
-        }
-        .active{
-            font-size: 100px;
-            color: red;
-        }
-    </style>
-    <div id="app" >
-        <div :class="className" 
-            @click="changeClassName">
-            {{msg}}
-        </div> <!-- "v-bind:class -> :class" --> 
+    <div id="app">
+    <div class="todos" 
+        v-for="todo in computedTodos"
+        :key="todo.id"> <!--밑에서 computed로 추가한 id를 사용한다-->
+        <input type="checkbox"
+            v-model="todo.done">
+            {{todo.title}}
+    </div>
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                msg: 'good~',
-                className: 'normal'
+                todos: [
+                    {title: '아침먹기'},
+                    {title: '점심먹기'},
+                    {title: '저녁먹기'},
+                ]
             },
-            methods: {
-                changeClassName () {
-                    this.className = 'active'
+            computed: {
+                computedTodos(){
+                    return this.todos.map((todo, index) =>{
+
+                        return {
+                            ...todo,
+                            id: index+1,
+                            done: false
+                        }
+                    })
                 }
             }
-        
-
         })
-        console.log('-------------')
     </script>
 </body>
 </html>
