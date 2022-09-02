@@ -8,18 +8,26 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
-    <div id="app2">
-        <span v-bind:title="msg">
-            span안에 있는 내용1
-        </span>
+    <div id="app">
+        <div>{{msg}}</div>
+        <button v-on:click="changeMessage">나를 눌러주세요</button>
     </div>
     <script>
-        new Vue(
-            {
-                el: "#app2",
-                data: {msg : '이 message는 ' + new Date() + '에 작성되었스니다.'}
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'message A'
+            },
+            methods: {
+                changeMessage: function() {
+                    this.msg = 'changed';
+                }
             }
-        )
+
+        })
+        console.log('-------------')
+        console.log(vm)
+        console.log('-------------')
     </script>
 </body>
 </html>
