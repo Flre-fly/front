@@ -8,31 +8,33 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
-    <style>
-        .box{
-            width: 100px;
-            height: 100px;
-        }
-        .red-box{
-            background-color: red;
-        }
-        .gray-box{
-            background-color: gray;
-        }
-        .blue-box{
-            background-color: blue;
-        }
-    </style>
-    <div id = "app" v-bind:style="[style1, style2]">
-        <div v-if="colorState==='red'" class ="box red-box"></div>
-        <div v-else-if="colorState==='blue'" class="box blue-box"></div>
-         <div v-else class="box gray-box"></div>
+    <div id = "app">
+        <ul>
+            <li v-for="(todo, index) in todos"
+                :key="index"
+                :class="'item' + (index+1)"
+                @click="click1(todo.title, $event); click2()">
+            {{todo.title}}</li>
+        </ul>
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                colorState:'white'
+                todos:[
+                    {title: '아침먹기'},
+                    {title: '점심먹기'},
+                    {title: '저녁먹기'},
+                ]
+            },
+            methods: {
+                click1(title, event){
+                    console.log(title)
+                    console.log(event.currentTarget.className)
+                },
+                click2(){
+                    console.log("click2 호출되었다")
+                }
             }
             
         })
