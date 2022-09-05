@@ -8,32 +8,29 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
-    <div id = "app">
-        <ul>
-            <li v-for="(todo, index) in todos"
-                :key="index"
-                :class="'item' + (index+1)"
-                @click="click1(todo.title, $event); click2()">
-            {{todo.title}}</li>
-        </ul>
+    <style>
+        .parent{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        .child{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+    <div id = "app" class="parent" @click.self="click1">
+        <div class="child" ></div>
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                todos:[
-                    {title: '아침먹기'},
-                    {title: '점심먹기'},
-                    {title: '저녁먹기'},
-                ]
             },
             methods: {
-                click1(title, event){
-                    console.log(title)
+                click1(event){
                     console.log(event.currentTarget.className)
-                },
-                click2(){
-                    console.log("click2 호출되었다")
                 }
             }
             
