@@ -9,17 +9,17 @@
 </head>
 <body>
     <div id = "app">
-        <input type="text" @KeyDown.ctrl.enter="keyHandler">
+        <input type="text" v-model="msg">
+        {{msg}}
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
+                msg: 'hello~'
             },
             methods: {
-                keyHandler(e){
-                    console.log("done!")
-                }
+                
             }
             
         })
