@@ -8,36 +8,33 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
-    <div id = "app">
-        <diV>{{msg}}</diV>
-        <div>{{reversedMsg}}</div>
+    <style>
+        .active { 
+            background-color: red;
+        }
+        .text-danger{
+            font-size: 100px;
+        }
+    </style>
+    <div id = "app" v-bind:class="[isActive ? class1 : '', errorClass]">
+        안녕
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                msg : 'hello bue!~!~'
+                isActive : true,
+                errorClass : 'text-danger'
+            
             },
             computed: {
-                reversedMsg: {
-                    get(){
-                        return this.msg.split('').reverse().join('')
-                    },
-                    set(newVal){
-                        this.msg = newVal
-                    }
-                    
-                    
+                class1(){
+                return{
+                    'text-danger': true,
+                    active : true
                 }
-            },
-            watch: {
-                msg(newMsg){ //msg가 변경되면 이렇게 됨
-                    console.log('변경되었습니다!! : ' + newMsg)
-                },
-                reversedMsg(newMsg){
-                    console.log('reversedMsg 변경되었스니다!! : ' + newMsg)
+
                 }
-                
             }
         })
     </script>
