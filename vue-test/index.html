@@ -8,34 +8,14 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
-    <style>
-        .active { 
-             font-size: 100px;
-        }
-        .one{
-            margin-left: 200px;
-        }
-        .bar{
-            background-color: blue;
-        }
-        .two{
-            color: cadetblue;
-        }
-    </style>
-    <div id = "app">
-        <component1 class ="one two">
-
-        </component1>
+    <div id = "app" v-bind:style="{color: redColor, fontSize: '100px'}">
+        야옹야옹멍멍
     </div>
     <script>
-        Vue.component('component1', {
-            template: '<p class="active bar">HIHI</p>'
-        })
         const vm = new Vue({
             el: '#app',
             data: {
-                isActive : true,
-                bar: 'bar',
+                redColor: 'red',
             }
             
         })
