@@ -10,14 +10,20 @@
 <body>
     <style>
         .active { 
-            background-color: red;
+             font-size: 100px;
         }
         .one{
-            font-size: 100px;
+            margin-left: 200px;
+        }
+        .bar{
+            background-color: blue;
+        }
+        .two{
+            color: cadetblue;
         }
     </style>
     <div id = "app">
-        <component1 :class ="one, two">
+        <component1 :class ="['one', 'two']">
 
         </component1>
     </div>
@@ -29,18 +35,7 @@
             el: '#app',
             data: {
                 isActive : true,
-                one :'one',
-                two: ''
-            
-            },
-            computed: {
-                class1(){
-                return{
-                    'text-danger': true,
-                    active : true
-                }
-
-                }
+                bar: 'bar'
             }
         })
     </script>
