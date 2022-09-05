@@ -12,19 +12,25 @@
         .active { 
             background-color: red;
         }
-        .text-danger{
+        .one{
             font-size: 100px;
         }
     </style>
-    <div id = "app" v-bind:class="[isActive ? class1 : '', errorClass]">
-        안녕
+    <div id = "app">
+        <component1 :class ="one, two">
+
+        </component1>
     </div>
     <script>
+        Vue.component('component1', {
+            template: '<p class="active bar">HIHI</p>'
+        })
         const vm = new Vue({
             el: '#app',
             data: {
                 isActive : true,
-                errorClass : 'text-danger'
+                one :'one',
+                two: ''
             
             },
             computed: {
