@@ -8,20 +8,31 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+        .red-box{
+            background-color: red;
+        }
+        .gray-box{
+            background-color: gray;
+        }
+        .blue-box{
+            background-color: blue;
+        }
+    </style>
     <div id = "app" v-bind:style="[style1, style2]">
-        야옹야옹멍멍
+        <div v-if="colorState==='red'" class ="box red-box"></div>
+        <div v-else-if="colorState==='blue'" class="box blue-box"></div>
+         <div v-else class="box gray-box"></div>
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                style1:{
-                    color: 'red',
-                    fontSize: '100px'
-                },
-                style2:{
-                    color: 'blue'
-                }
+                colorState:'white'
             }
             
         })
