@@ -9,34 +9,29 @@
 </head>
 <body>
     <div id="app">
-    <div
-        v-for="todo in computedTodos"
-        :key="todo.id"> <!--밑에서 computed로 추가한 id를 사용한다-->
-        <input type="checkbox"
-            v-model="todo.done">
-            {{todo.title}}
-    </div>
+    <div>{{reverseMsg()}}</div>
+    <div>{{reverseMsg()}}</div>
+    <div>{{reverseMsg()}}</div>
+    <div>ㅡㅡㅡㅡㅡㅡㅡㅡ</div>
+    <div>{{reversedMsg}}</div>
+    <div>{{reversedMsg}}</div>
+    <div>{{reversedMsg}}</div>
+
     </div>
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                todos: [
-                    {title: '아침먹기'},
-                    {title: '점심먹기'},
-                    {title: '저녁먹기'},
-                ]
+                msg : "hello world"
             },
             computed: {
-                computedTodos(){
-                    return this.todos.map((todo, index) =>{
-
-                        return {
-                            ...todo,
-                            id: index+1,
-                            done: false
-                        }
-                    })
+                reversedMsg(){
+                    return this.msg.split('').reverse().join('')
+                }
+            },
+            methods: {
+                reverseMsg(){
+                    return this.msg.split('').reverse().join('')
                 }
             }
         })
