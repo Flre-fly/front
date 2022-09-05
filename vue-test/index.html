@@ -23,7 +23,7 @@
         }
     </style>
     <div id = "app">
-        <component1 :class ="['one', 'two']">
+        <component1 class ="one two">
 
         </component1>
     </div>
@@ -35,8 +35,9 @@
             el: '#app',
             data: {
                 isActive : true,
-                bar: 'bar'
+                bar: 'bar',
             }
+            
         })
     </script>
 </body>
