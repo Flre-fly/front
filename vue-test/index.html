@@ -8,20 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
-    <style>
-        .parent{
-            width: 200px;
-            height: 200px;
-            background-color: blue;
-        }
-        .child{
-            width: 100px;
-            height: 100px;
-            background-color: red;
-        }
-    </style>
-    <div id = "app" class="parent" @click.self="click1">
-        <div class="child" ></div>
+    <div id = "app">
+        <input type="text" @KeyDown.ctrl.enter="keyHandler">
     </div>
     <script>
         const vm = new Vue({
@@ -29,8 +17,8 @@
             data: {
             },
             methods: {
-                click1(event){
-                    console.log(event.currentTarget.className)
+                keyHandler(e){
+                    console.log("done!")
                 }
             }
             
