@@ -8,23 +8,30 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
 </head>
 <body>
-    <div id = "app">
-        <input type="text" v-model.number="msg" :value="msg">
-        {{msg}}
-        <div>{{typeof msg}}</div>
+    <div id = "app1">
+        <my-compo/>
+    </div>
+    <div id = "app2">
     </div>
     <script>
-        const vm = new Vue({
-            el: '#app',
-            data: {
-                msg: 'hello~'
-            },
-            methods: {
-                changeMessage(event){
-                    this.msg = event.target.value
+        const myCompo = {
+            template: '<div class="me">{{msg}}</div>',
+            data(){
+                return{
+                    msg: 'hello vue'
                 }
+               
+            }
+        }
+        const vm1 = new Vue({
+            el: '#app1',
+            components: {
+                myCompo
             }
             
+        })
+        const vm2 = new Vue({
+            el: '#app2'
         })
     </script>
 </body>
