@@ -9,8 +9,9 @@
 </head>
 <body>
     <div id = "app">
-        <input type="text" v-model="msg">
+        <input type="text" v-model.number="msg" :value="msg">
         {{msg}}
+        <div>{{typeof msg}}</div>
     </div>
     <script>
         const vm = new Vue({
@@ -19,7 +20,9 @@
                 msg: 'hello~'
             },
             methods: {
-                
+                changeMessage(event){
+                    this.msg = event.target.value
+                }
             }
             
         })
